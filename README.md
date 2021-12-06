@@ -1,2 +1,2 @@
 # aoc21
-Advent of code 2021
+My entries for the Advent of code 2021, done in Julia

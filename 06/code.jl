@@ -26,16 +26,26 @@ length(lanterns.fishes)
 
 # Part II - previous method is computationally inefficient given exponential increase
 
-ages = collect(0:8)
-structure = [sum(i .== data) for i in ages]
-
+dt = parse.(Int,split(readline("06/data.txt"),","))
+str = [sum(i .== dt) for i in 0:8]
 for _ in 1:256
-    old = deepcopy(structure)
+    zero = str[1]
     for i in 1:8
-        structure[i] = old[i+1]
+        str[i] = str[i+1]
     end
-    structure[7] += old[1]
-    structure[9] = old[1]
+    str[7] += zero
+    str[9] = zero
 end
+sum(str)
 
-sum(structure)
+# alternative with Leslie matrix approach:
+
+dt = parse.(Int,split(readline("06/data.txt"),","))
+str = [sum(i .== dt) for i in 0:8]
+leslie = [i==j-1 ? 1 : 0 for i=0:8,j=0:8]
+leslie[7,1] = 1
+leslie[9,1] = 1
+for _ in 1:256
+    str = leslie * str
+end
+sum(str)

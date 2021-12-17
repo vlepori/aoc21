@@ -24,7 +24,7 @@ function fold_left(mat::Matrix,at::Int)
     keep[:,end-size(paste,2)+1 : end] += paste
     return keep
 end
-sum(fold_up(mat,655).> 0  )
+sum(fold_up(mat,655).> 0)
 
 # Part 2
 for ln in (instructions)

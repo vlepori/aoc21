@@ -18,7 +18,7 @@ end
 
 thesub |> s -> s.hposition * s.depth
 
-# Part 2 (restart julia first)
+# Part 2 (restart julia kernel first)
 
 mutable struct Submarine
     hposition::Int

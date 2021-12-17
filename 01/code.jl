@@ -1,5 +1,3 @@
-# DAY 1
-
 # part 1
 parse.(Int, readlines("01/data.txt")) |> x -> sum(diff(x) .> 0)
 
